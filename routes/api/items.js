@@ -2,7 +2,7 @@ const router = require("express").Router();
 const homelistController = require("../../controllers/homelistController");
 
 // Matches with "/api/items"
-router.route("/")
+router.route("/api/items")
   .get(homelistController.findAll)
   .post(homelistController.create);
 

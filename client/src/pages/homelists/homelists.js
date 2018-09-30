@@ -17,10 +17,12 @@ class Homelists extends Component {
 
 
 loadHomelists = () => {
+  console.log("Hello")
     API.getHomelists()
-    .then(res =>
+    .then(res =>{
         this.setState({ homelists: res.data, items: ""})
-    )
+    }
+        )
     .catch(err => console.log(err));
 };
 

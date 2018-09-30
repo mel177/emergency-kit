@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
   // Gets all items
   getHomelists: function() {
-    return axios.get("/api/homelists");
+    return axios.get("/api/items");
   },
   // Gets the book with the given id
   gethomelists: function(id) {
