@@ -6,29 +6,29 @@ import { Col, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input,  FormBtn } from "../../components/Form";
 
-class Homelists extends Component {
+class evacuationlists extends Component {
     state = {
         items: []
     };
 
     componentDidMount() {
-        this.loadHomelists();
+        this.loadEvacuationlists();
     }
 
 
-loadHomelists = () => {
+loadEvacuationlists = () => {
   console.log("Hello")
-    API.getAllHomelists()
+  API.getAllEvacuationLists()
     .then(res =>{
-        this.setState({ homelists: res.data, items: ""})
+        this.setState({ evacuationlists: res.data, items: ""})
     }
         )
     .catch(err => console.log(err));
 };
 
-deleteHomelists = id => {
-    API.deleteHomelists(id)
-    .then(res => this.getAllHomelists())
+deleteEvacuationlists = id => {
+    API.deleteEvacuatlists(id)
+    .then(res => this.getAllEvacuationlists())
     .catch(err => console.log(err));
 };
 handleInputChange = event => {
@@ -40,50 +40,40 @@ handleInputChange = event => {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.item) {
-      API.saveHomelists({
+      API.saveEvacuationlists({
         items: this.state.items,
         
       })
-        .then(res => this.loadHomelists())
+        .then(res => this.loadEvacuationlists())
         .catch(err => console.log(err));
     }
   };
   render() {
     return (
       <Container fluid>
-        {/* <Row>
-          <Col size="md-6">
-          <Jumbotron style={{display: "block"}}>
-              <h1>Home Kit</h1>
-          </Jumbotron>
-          <form>
-              <Input name="item" placeholder="Home Items (required)" />
-              
-              <FormBtn>Submit Item</FormBtn>
-          </form>
-          </Col>
-          <Col size="md-6">
-          
-          </Col>
-        </Row> */}
+          {/* <Col size="md-6"> */}
+            {/* <Jumbotron>
+              <h1>Disaster Kit</h1>
+            </Jumbotron>
+          {/* </Col> */}
           <Col size="md-6">
             <Jumbotron>
-              <h1>Home Kit</h1>
+              <h1>Evacuation Kit</h1>
             </Jumbotron>
             <form>
-              <Input name="item" placeholder="Home Items (required)" />
+              <Input name="item" placeholder="Evacuation Items (required)" />
               
               <FormBtn>Submit Item</FormBtn>
-            </form> 
+            </form>
             {this.state.items.length ? (
               <List>
                 {this.state.items.map(items => {
                   return (
                     <ListItem key={items._id}>
-                      <a href={"/homelists/" + items._id}>
+                      <a href={"/evacuationlists/" + items._id}>
                         
                       </a>
-                      <DeleteBtn onClick={() => this.deleteHomelists(items._id)} />
+                      <DeleteBtn onClick={() => this.deleteEvacuationlists(items._id)} />
                     </ListItem>
                   );
                 })}
@@ -97,4 +87,4 @@ handleInputChange = event => {
   }
 }
 
-export default Homelists;
+export default evacuationlists;

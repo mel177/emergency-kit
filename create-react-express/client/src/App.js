@@ -1,11 +1,18 @@
 import React from 'react';
-import Homelists from "./pages/homelists";
 import Nav from "./components/Nav";
+import Evacuationlists from "./pages/evacuationlists";
+import Homelists from "./pages/homelists";
+import { Row } from ".././src/components/Grid";
+
 
 const App = () => (
   <div>
     <Nav />
-    <Homelists />
+    <Row>
+      <Evacuationlists />
+      <Homelists />
+    </Row>
+
   </div>
 );
 export default App;
