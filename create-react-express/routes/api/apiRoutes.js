@@ -3,6 +3,10 @@ const evacuationController = require("../../controllers/evacuationController");
 const homeController = require("../../controllers/homeController");
 
 
+
+// app.route('/test').get(function(req,res){
+//   console.log("INSIDE TEST ROUTE")
+// })
 // Matches with "/evacuations"
 app.route("/evacuationlists")
   .get(evacuationController.findAll)

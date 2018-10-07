@@ -31,3 +31,9 @@
 .list-overflow-container li:last-child {
   border-bottom: none;
 }
+
+.delete-btn {
+  float: right;
+  color: #e74944;
+}
+

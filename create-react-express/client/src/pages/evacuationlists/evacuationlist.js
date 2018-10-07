@@ -20,15 +20,17 @@ loadEvacuationlists = () => {
   console.log("Hello")
   API.getAllEvacuationLists()
     .then(res =>{
-        this.setState({ evacuationlists: res.data, items: ""})
+      console.log("RES TO FRONT END--- ",res)
+        this.setState({ items: res.data})
     }
         )
     .catch(err => console.log(err));
 };
 
 deleteEvacuationlists = id => {
-    API.deleteEvacuatlists(id)
-    .then(res => this.getAllEvacuationlists())
+  console.log("Thing clicked!!!!", id)
+    API.deletelists(id)
+    .then(res => API.getAllEvacuationlists())
     .catch(err => console.log(err));
 };
 handleInputChange = event => {
@@ -65,18 +67,22 @@ handleInputChange = event => {
               
               <FormBtn>Submit Item</FormBtn>
             </form>
+            
             {this.state.items.length ? (
               <List>
-                {this.state.items.map(items => {
-                  return (
-                    <ListItem key={items._id}>
-                      <a href={"/evacuationlists/" + items._id}>
-                        
-                      </a>
-                      <DeleteBtn onClick={() => this.deleteEvacuationlists(items._id)} />
-                    </ListItem>
-                  );
-                })}
+                {this.state.items.map(items => (
+                  <ListItem key={items._id} id={items._id} item={items.item} onClick={this.deleteEvacuationlists}>
+                  <a href={"/evacuationlists/" + items._id}>
+   
+                  </a>
+                  <DeleteBtn  />
+                  </ListItem>
+
+                )
+                 
+                   
+                  
+                )}
               </List>
             ) : (
               <h3>No Results to Display</h3>

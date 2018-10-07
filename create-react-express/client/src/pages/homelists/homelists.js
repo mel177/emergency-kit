@@ -20,7 +20,7 @@ loadHomelists = () => {
   console.log("Hello")
     API.getAllHomelists()
     .then(res =>{
-        this.setState({ homelists: res.data, items: ""})
+        this.setState({ items: res.data})
     }
         )
     .catch(err => console.log(err));
@@ -28,7 +28,7 @@ loadHomelists = () => {
 
 deleteHomelists = id => {
     API.deleteHomelists(id)
-    .then(res => this.getAllHomelists())
+    .then(res => API.getAllHomelists())
     .catch(err => console.log(err));
 };
 handleInputChange = event => {
@@ -77,16 +77,15 @@ handleInputChange = event => {
             </form> 
             {this.state.items.length ? (
               <List>
-                {this.state.items.map(items => {
-                  return (
-                    <ListItem key={items._id}>
+                {this.state.items.map(items => 
+                    <ListItem key={items._id} id={items.id} item={items.item} onClick={this.deleteHomelists}>
                       <a href={"/homelists/" + items._id}>
                         
                       </a>
                       <DeleteBtn onClick={() => this.deleteHomelists(items._id)} />
                     </ListItem>
-                  );
-                })}
+                  
+                )}
               </List>
             ) : (
               <h3>No Results to Display</h3>
