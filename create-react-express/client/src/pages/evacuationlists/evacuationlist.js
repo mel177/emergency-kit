@@ -53,11 +53,7 @@ handleInputChange = event => {
   render() {
     return (
       <Container fluid>
-          {/* <Col size="md-6"> */}
-            {/* <Jumbotron>
-              <h1>Disaster Kit</h1>
-            </Jumbotron>
-          {/* </Col> */}
+         
           <Col size="md-6">
             <Jumbotron>
               <h1>Evacuation Kit</h1>

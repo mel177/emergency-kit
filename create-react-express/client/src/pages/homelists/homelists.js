@@ -51,21 +51,7 @@ handleInputChange = event => {
   render() {
     return (
       <Container fluid>
-        {/* <Row>
-          <Col size="md-6">
-          <Jumbotron style={{display: "block"}}>
-              <h1>Home Kit</h1>
-          </Jumbotron>
-          <form>
-              <Input name="item" placeholder="Home Items (required)" />
-              
-              <FormBtn>Submit Item</FormBtn>
-          </form>
-          </Col>
-          <Col size="md-6">
-          
-          </Col>
-        </Row> */}
+      
           <Col size="md-6">
             <Jumbotron>
               <h1>Home Kit</h1>
